@@ -4,66 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simpli Blogging</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-        <nav class="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
-            <div class="container-fluid"></div>
-            <a href="#" class="navbar-brand">
-                Simpli Blogging
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#addBlog">Add Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">About Us</a>
-                    </li>
-
-                </ul>
-            </div>
-            
-        </div>
-        </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Simpli Blogging</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end " id="navbarSupportedContent">
+        <ul class="nav navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#addBlog">Add Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <main class="container" role="main">
         <!-- Modal -->
         <div class="modal fade" id="addBlog" tabindex="-1" role="dialog" aria-labelledby="AddBlogModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <form>
-                <input type="text" class="form-control" placeholder="Add Title for Blog" id="blogTitle" required>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="img">Select image:</label>
-                    <input type="file" id="img" name="img" accept="image/*">
+            <form method="POST" name="blogData">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Create a Blog</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <textarea name="blogContent" id="blogContent" cols="30" rows="15" class="form-control" required></textarea>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Reset</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="img">Add Title for Blog:</label>
+                        <input type="text" class="form-control" placeholder="Add Title for Blog" id="blogTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="img">Add Body:</label>
+                        <textarea name="blogContent" id="blogContent" cols="30" rows="10" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="img">Select Cover for Blog:</label>
+                        <input type="file" id="blogImg" name="img" accept="image/*" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                    <button type="submit" class="btn btn-primary" onclick="saveBlog()">Save</button>
+                </div>
+                </div>
             </form>
-            </div>
-            </div>
         </div>
         </div>
     </main>
+    <!-- Simpli Blog javascript -->
+    <script src="main.js"></script>
+    <!-- BootStrap javascript Library -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
 </body>
 </html>
