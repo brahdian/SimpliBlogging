@@ -1,9 +1,9 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simpli Blogging</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
@@ -12,7 +12,7 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end " id="navbarSupportedContent">
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="nav navbar-nav">
           <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -29,11 +29,11 @@
         </ul>
       </div>
     </nav>
-    <main class="container" role="main">
-        <!-- Modal -->
+    <main class="container" role="main" id="main" style="margin-top:2rem;">
+        <!-- Add Blog Modal -->
         <div class="modal fade" id="addBlog" tabindex="-1" role="dialog" aria-labelledby="AddBlogModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <form method="POST" name="blogData">
+            <form method="GET">
                 <div class="modal-content">
                 <div class="modal-header">
                     <h5>Create a Blog</h5>
@@ -57,11 +57,29 @@
                 </div>
                 <div class="modal-footer">
                     <button type="reset" class="btn btn-danger">Reset</button>
-                    <button type="submit" class="btn btn-primary" onclick="saveBlog()">Save</button>
+                    <button type="submit" class="btn btn-primary" onclick="saveBlog(); return false;">Save</button>
                 </div>
                 </div>
             </form>
         </div>
+        </div>
+        <!-- Read Blog Modal -->
+        <div class="modal fade" id="readBlog" tabindex="-1" role="dialog" aria-labelledby="ReadBlogModal" aria-hidden="true">
+            <div class="modal-dialog modal-lg"  role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 id="readBlogTitle"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="" alt="" id="readBlogImg" class="img-fluid">
+                            <hr>
+                            <p id="readBlogText"></p>
+                        </div>
+                    </div>
+            </div>
         </div>
     </main>
     <!-- Simpli Blog javascript -->
