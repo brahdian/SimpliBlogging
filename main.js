@@ -1,4 +1,5 @@
 var cardContainer;
+
 var dispalyBlog = (blog)=>{
     if(blog==null){
         return;
@@ -86,4 +87,12 @@ function readBlog(blog){
     readBlogImg.src = blog.imgData;
     readBlogText = document.getElementById('readBlogText');
     readBlogText.innerHTML=blog.content;
+}
+function aboutus(){
+    window.history.pushState('aboutus', 'About Us', '/aboutus.html');
+    document.write("<h3>About Us</h3><br><p>Nothing to show here</p>");
+}
+function contactus(){
+    window.history.pushState('contactus', 'COntact Us', '/aboutus.html');
+    document.write("<h3>Contact Us</h3><br><p>Nothing to show here</p>");
 }
